@@ -1,6 +1,6 @@
 <?php
 
-namespace Poutnik;
+namespace Template;
 
 /**
  * Práce se stránkami v databázi.
@@ -10,21 +10,23 @@ namespace Poutnik;
  * @todo Dodělat
  *
  * @author Michael Dojčár <michaeldojcar@gmail.com>
- * @version 0.2
+ * @version 0.21
  */
 
 class Page
 {
 
-    /**
-     * @var $db object Objekt připojení do db
+    /**e
+     * @var $db object Připojení k databázi.
+     *
+     * Sem se inicializuje objekt třídy database.
      */
     public $db;
 
     /**
      * @var string $tableName Název tabulky, která se má používat.
      */
-    public $tableName;
+    public $tableName = "stranky";
 
     /**
      * Page constructor.
@@ -33,13 +35,15 @@ class Page
     {
         // Připojení k db
         $this->db = new Database();
-        $config = new Config();
-
-        // Jméno tabulky která se bude používat
-        $this->tableName = $config->getProperty("tables","stranky");
     }
 
-    public function create()
+    /**
+     * Vytvoří v databázi záznam s novou stránkou.
+     *
+     * @param $title string
+     * @param $content string
+     */
+    public function create($title,$content)
     {
 
     }
@@ -56,7 +60,7 @@ class Page
     }
 
     /**
-     * Vytvoří tabulku, pokud ještě není vytvořená.
+     * Vytvoří tabulku v databázi, pokud ještě není vytvořená.
      */
     public function init()
     {

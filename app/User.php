@@ -1,6 +1,6 @@
 <?php
 
-namespace Poutnik;
+namespace Template;
 
 /**
  * Model admina

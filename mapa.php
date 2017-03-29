@@ -11,7 +11,7 @@ require "load.php";
 $template = new Template();
 $template->title = "Trasa";
 
-$template->render("top.php")
+$template->get("top.php")
 ?>
     <div class="m-only">
         <div class="container">
@@ -29,4 +29,4 @@ $template->render("top.php")
     </div>
 <?php
 
-$template->render("bottom_no_footer.php");
+$template->get("bottom_no_footer.php");

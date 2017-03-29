@@ -10,7 +10,7 @@ require "load.php";
 
 $template = new Template();
 
-$template->render("top.php")
+$template->get("top.php")
 ?>
 <div class="container">
     <div class="content">
@@ -60,4 +60,4 @@ $template->render("top.php")
 
 <?php
 
-$template->render("bottom.php");
+$template->get("bottom.php");

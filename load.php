@@ -27,10 +27,6 @@ $config = new Config();
 // URL webu
 define('ROOT_URL', 'http://' . htmlspecialchars($_SERVER['HTTP_HOST']) . $config->getProperty("web","server_url_subdir"));
 
-
-
-
-
 $db_test = new Database();
 $db_test->connect();
 

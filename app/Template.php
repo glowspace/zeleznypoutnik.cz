@@ -6,7 +6,7 @@ namespace Poutnik;
  * Třída pro práci s grafickými šablonami.
  *
  * @author Michael Dojčár <michael.dojcar@gmail.com>
- * @version 0.26
+ * @version 0.28
  */
 
 class Template
@@ -39,33 +39,47 @@ class Template
     }
 
     /**
-     * Importuje do stránky určitý soubor z adresáře se šablonami.
-     * Pokud soubor neexistuje, vyhodí exception.
+     * Načte šablonu z defaultního adresáře.
      *
-     * @param $templateName string Název souboru s šablonou, který se má importovat
-     *
-     * @return bool True pokud je import úspěšný
-     * @throws \Exception
+     * @param $template_name string Název souboru s šablonou, který se má importován
+     * @return string Obsah šablony
      */
-    public function render($templateName)
+    public function get($template_name)
     {
-        // Kompletní cesta k šabloně
-        $template_path = $this->path . '/' . $templateName;
+        $content = $this->getFromDir($this->path,$template_name);
+
+        return $content;
+    }
+
+    /**
+     * Importuje do stránky určitý soubor ze zadaného adresáře
+     *
+     * @param $template_path string
+     * @param $template_name string
+     *
+     * @return string Obsah souboru se šablonou
+     */
+    protected function getFromDir($template_path, $template_name)
+    {
+        $file_path = $template_path . '/' . $template_name;
 
         // Ověření, jestli soubor existuje
-        $check = file_exists($template_path);
+        $check = file_exists($file_path);
 
         if ($check == true)
         {
-            require($this->path . '/' . $templateName);
+            $template_content = readfile($file_path);
 
-            return true;
+            return $template_content;
         }
         // Pokud ne..
         else
         {
-            throw new \Exception('Neplatný název souboru šablony!');
+            trigger_error("Neplatný název souboru šablony! ($file_path)");
+
+            return null;
         }
+
     }
 
     /**
@@ -85,23 +99,6 @@ class Template
         else
         {
             $title = $this->pageName;
-
-            return $title;
-        }
-    }
-
-    public function getTitleAdmin()
-    {
-        // Zobrazení titulku
-        if (isset($this->title))
-        {
-            $title = $this->title . ' - Administrace';
-
-            return $title;
-        }
-        else
-        {
-            $title = 'Administrace Železného poutníka';
 
             return $title;
         }

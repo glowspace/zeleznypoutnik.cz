@@ -142,7 +142,7 @@ class Login
     {
         if($requested_level == "user")
         {
-            if($this->loggedLevel == "user" || $this->loggedLevel == "admin")
+            if($this->loggedLevel == "user" || $this->loggedLevel == "template")
             {
 
             }
@@ -151,9 +151,9 @@ class Login
             }
         }
 
-        elseif($requested_level == "admin")
+        elseif($requested_level == "template")
         {
-            if($this->loggedLevel != "admin")
+            if($this->loggedLevel != "template")
             {
                 echo "<script>
                   alert('Bohužel nemáte oprávnění zobrazit tuto stránku!');

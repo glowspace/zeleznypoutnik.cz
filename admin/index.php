@@ -6,7 +6,7 @@ require "../load.php";
 
 $template = new Template();
 
-$template->render("admin/top.php");
+$template->get("template/top.php");
 
 ?>
 
@@ -568,6 +568,6 @@ $template->render("admin/top.php");
     </div>
 
 <?php
-$template->render("admin/bottom.php");
+$template->get("template/bottom.php");
 
 
