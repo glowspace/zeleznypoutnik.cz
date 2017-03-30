@@ -40,6 +40,9 @@ define('CLASS_PATH', ROOT . '/admin');
 // Root webu
 define('ROOT_URL', 'http://' . htmlspecialchars($_SERVER['HTTP_HOST']) . $config->getProperty("web","server_url_subdir"));
 
+// Root webu bez protokolu
+define('ROOT_URL_SHORT', htmlspecialchars($_SERVER['HTTP_HOST']) . $config->getProperty("web","server_url_subdir"));
+
 // Administrace
 define('ADMIN_URL', ROOT_URL . "/admin");
 

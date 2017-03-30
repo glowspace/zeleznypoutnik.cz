@@ -1,21 +1,32 @@
 <?php
 
 /**
- * Index webu
+ * Práce se stránkou
  */
 
 namespace Poutnik;
 
-require "load.php";
+require "../load.php";
+
+$config = new Config();
+
+/**
+ * Layout stránky
+ */
 
 $template = new Template();
+$template->setTemplatePath("/admin/layout/template");
 
-$template->setPageName("index");
+$template->setTitle("Stránka");
 
 $template->render("top.php");
+
 ?>
-<div class="container">
-    <div class="content">
+    <div class="page-header">
+        <h1>Úprava stránky</a></h1>
+    </div>
+
+    <textarea>
         <h1>20. ročník Železného poutníka</h1>
 
         <p>
@@ -50,16 +61,10 @@ $template->render("top.php");
             Těšíme se na společnou pouť!
         </p>
 
-    </div>
+        </div>
+    </textarea>
 
-    <div class="column">
-        <a href="mapa.php" title="Kliknutím zobrazte detail trasy">
-            <img width="100%" src="layout/img/mapa_preview2.jpg" alt="Mapa trasy" style="margin-bottom: 2em; box-shadow: #b7b7b7 0 0 7px;">
-        </a>
-    </div>
-
-</div>
-
-<?php
-
+    <?php
 $template->render("bottom.php");
+
+

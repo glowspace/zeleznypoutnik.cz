@@ -14,6 +14,7 @@ namespace Poutnik;
 
 class Login
 {
+
     /**
      * @var boolean $logged Stav přihlášení. Pokud je TRUE, uživatel je přihlášen.
      */
@@ -25,8 +26,6 @@ class Login
     public $loggedId;
 
     /**
-     * @todo ?? zjistit typ
-     *
      * @var string
      */
     public $error;
@@ -53,7 +52,7 @@ class Login
         $this->db = new Database();
 
         // Nastavení výchozí tabulky
-        $config = $GLOBALS["config"];
+        $config = new Config(ROOT . "config.ini");
         $this->tableName = $config->getProperty("tables","uzivatele");
 
         // Zjištění stavu atributů logged, loggedId

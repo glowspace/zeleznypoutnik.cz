@@ -9,11 +9,12 @@
 namespace Poutnik;
 
 $template = $GLOBALS['template'];
+
 $pg_title = $template->getTitle();
-$pg_name = $template->getPageName();
+$pg_name = $template->getSiteName();
 
 $config = new Config();
-$fb_display = $config->getProperty("template","fb_icon_display");
+#$fb_display = $config->getProperty("template","fb_icon_display");
 
 ?>
 <!doctype html>
@@ -53,6 +54,9 @@ $fb_display = $config->getProperty("template","fb_icon_display");
 
     <link rel="stylesheet" href="<?php echo ROOT_URL; ?>/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>/layout/css/theme.css">
+
+    <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 
 <body>
@@ -66,13 +70,13 @@ $fb_display = $config->getProperty("template","fb_icon_display");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><?php echo $pg_title; ?></a>
+                <a class="navbar-brand" href="#">Administrace <span style="color: #46a6ff"><?php echo ROOT_URL_SHORT ?></span></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Nástěnka</a></li>
-                    <li><a href="#about">Stránky</a></li>
-                    <li><a href="#contact">Nastavení</a></li>
+                    <li<?php $li_nastenka; ?>><a href=".">Nástěnka</a></li>
+                    <li<?php $li_stranky; ?>><a href="#about">Stránky</a></li>
+                    <li<?php $li_nastaveni; ?>><a href="#contact">Nastavení</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Michael Dojčár<span class="caret"></span></a>
                         <ul class="dropdown-menu">

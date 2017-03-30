@@ -26,7 +26,7 @@ class Page
     /**
      * @var string $tableName Název tabulky, která se má používat.
      */
-    public $tableName = "stranky";
+    public $tableName;
 
     /**
      * Page constructor.
@@ -35,17 +35,23 @@ class Page
     {
         // Připojení k db
         $this->db = new Database();
+
+        // Config
+        $config = new Config(ROOT . "/config.ini");
+
+        // Nastavení používané tabulky
+        $this->tableName = $config->getProperty("tables","stranky");
     }
 
     /**
      * Vytvoří v databázi záznam s novou stránkou.
      *
-     * @param $title string
-     * @param $content string
+     * @param $page_title string
+     * @param $page_content string
      */
-    public function create($title,$content)
+    public function create($page_title,$page_content)
     {
-
+        $this->db->query("INSERT INTO $this->tableName (page_title,page_content) VALUES ('$page_title','$page_content')");
     }
 
     /**
@@ -54,15 +60,51 @@ class Page
      */
     public function getPageName($id)
     {
-        $query = $this->db->query("SELECT * FROM $this->tableName WHERE id = $id");
+        $query = $this->db->query("SELECT * FROM $this->tableName WHERE page_id = '$id'");
 
         return $query;
     }
 
     /**
+     * @param $id int ID stránky
+     *
+     * @todo
+     */
+    public function setPageName($id)
+    {
+       # $query = $this->db->query("UPDATE $this->tableName ");
+    }
+
+    /**
+     * @param $id int ID stránky
+     * @return mixed
+     */
+    public function getPageContent($id)
+    {
+        $query = $this->db->query("SELECT * FROM $this->tableName WHERE id = $id");
+
+        if($query)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * @param $id int ID stránky
+     */
+    public function setPageContent($id)
+    {
+
+    }
+
+    /**
      * Vytvoří tabulku v databázi, pokud ještě není vytvořená.
      */
-    public function init()
+    public function initTable()
     {
         $query = $this->db->query("SHOW TABLES LIKE '$this->tableName'");
 

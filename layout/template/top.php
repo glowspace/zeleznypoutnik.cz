@@ -10,7 +10,7 @@ namespace Poutnik;
 
 $template = $GLOBALS['template'];
 
-$config = $GLOBALS['config'];
+$config = new Config();
 $fb_display = $config->getProperty("template","fb_icon_display");
 
 $layout_url = ROOT_URL . $config->getProperty("template","layout_path");
@@ -76,8 +76,8 @@ $layout_url = ROOT_URL . $config->getProperty("template","layout_path");
         <div class="header-navigation">
 
             <?php
-            // výpočet rotdílu mezi časy
-            $now = time();
+            // výpočet rozdílu mezi časy
+            $now = strtotime(date("Y-m-d"));
             $poutnik = strtotime("2017-03-31");
 
             $datediff = $poutnik - $now;

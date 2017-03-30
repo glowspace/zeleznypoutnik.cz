@@ -6,49 +6,60 @@ namespace Poutnik;
  * Třída pro práci s grafickými šablonami.
  *
  * @author Michael Dojčár <michael.dojcar@gmail.com>
- * @version 0.30
+ * @version 0.31
  */
 
 class Template
 {
 
     /**
-     * @var $title string Zobrazovaný titulek
+     * @var $templatePath string Cesta, která bude použita pro import šablon
      */
-    public $title;
+    protected $templatePath;
 
     /**
-     * @var $pageName string Název stránky - načítá se z configu.
+     * @var $pageTitle string Titulek pro metodu $this->getTitle()
      */
-    public $pageName;
+    protected $pageTitle;
 
-    /**+
-     * @var $path string Cesta k adresáři s šablonami
+    /**
+     * @var $pageName string Název stránky pro její identifikaci
      */
-    public $path;
+    protected $pageName;
+
 
     /**
      * Template constructor.
      */
     function __construct()
     {
-        $config = $GLOBALS['config'];
+        $config = new Config();
 
-        $this->pageName = $config->getProperty("template","pg_name");
-        $this->path = ROOT . $config->getProperty("template","path");
+        // Určí defaultní cestu k adresáři s šablonami
+        $this->setTemplatePath($config->getProperty("template","path"));
     }
 
     /**
-     * Načte šablonu z defaultního adresáře.
+     * Uloží cestu k adresáři s šablonami do atributu.
      *
-     * @param $template_name string Název souboru s šablonou, který se má importován
+     * @param $template_path string Relativní cesta k adresáři s šablonami
+     */
+    function setTemplatePath($template_path)
+    {
+        $this->templatePath = ROOT . $template_path;
+    }
+
+    /**
+     * Importuje šablonu z defaultního adresáře.
+     *
+     * @param $template_file_name string Název souboru s šablonou, který se má importován
      * @return bool
      */
-    public function render($template_name)
+    public function render($template_file_name)
     {
-        $content = $this->renderFromDir($this->path,$template_name);
+        $render = $this->renderFile($this->templatePath . "/" . $template_file_name);
 
-        if($content)
+        if($render)
         {
             return true;
         }
@@ -59,76 +70,117 @@ class Template
     }
 
     /**
-     * Importuje do stránky určitý soubor ze zadaného adresáře
+     * Importuje šablonu z určeného adresáře.
      *
-     * @param $template_path string
-     * @param $template_name string
+     * @param $file_path string Absolutní cesta k souboru
      *
-     * @return string Obsah souboru se šablonou
+     * @return bool
      */
-    protected function renderFromDir($template_path, $template_name)
+    private function renderFile($file_path)
     {
-        $file_path = $template_path . '/' . $template_name;
-
-        // Ověření, jestli soubor existuje
+        // Ověření, zda soubor existuje
         $check = file_exists($file_path);
 
         if ($check == true)
         {
-            require $file_path;
+            include $file_path;
 
             return true;
         }
-        // Pokud ne..
+        // Pokude neexistuje, upozorní
         else
         {
             trigger_error("Neplatný název souboru šablony! ($file_path)");
 
             return false;
         }
-
     }
 
     /**
-     * Vrátí titulek nastavený před renderem šablony do atributu $this->title.
+     * Nastaví titulek pro metodu getTitle().
+     *
+     * @param $title string Konkrétní titulek stránky
+     * @return bool
+     */
+    public function setTitle($title)
+    {
+        if(isset($title))
+        {
+            $this->pageTitle = $title;
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * Vrátí titulek stránky.
+     * Pokud byl nastaven konkr. titulek pomocí metody setTitle(),
+     * vrátí vypsaný konkrétní titulek.
      *
      * @return string Vrátí nastavený titulek
      */
     public function getTitle()
     {
         // Zobrazení titulku
-        if (isset($this->title))
+        if (isset($this->pageTitle))
         {
-            $title = $this->title . ' - ' . $this->pageName;
+            $title = $this->pageTitle . ' - ' . $this->getSiteName();
 
             return $title;
         }
         else
         {
-            $title = $this->pageName;
+            $title = $this->getSiteName();
 
             return $title;
         }
     }
 
     /**
-     * Vrátí název stránky z konfigurace.
+     * Nastaví název stránky pro její identifikaci
      *
-     * @return string Vrátí nastavený název stránky
+     * @param $name string Název stránky
+     * @return bool
      */
-    public function getPageName()
+    public function setPageName($name)
     {
-        $config = $GLOBALS['config'];
-
-        $page_name = $config->getProperty("template","pg_name");
-
-        if(!empty($page_name))
+        if(isset($name))
         {
-            return $page_name;
+            $this->pageName = $name;
+
+            return true;
         }
         else
         {
-            trigger_error("Page_name nebylo určeno.");
+            return false;
         }
+    }
+
+    /**
+     * Vrátí název stránky pro její identifikaci.
+     *
+     * @return string Vrátí nastavený titulek
+     */
+    public function getPageName()
+    {
+        return $this->pageName;
+    }
+
+    /**
+     * Vrátí název stránky z konfigurace.
+     *
+     * @return string Název stránky
+     */
+    public function getSiteName()
+    {
+        $config = new Config();
+
+        $page_name = $config->getProperty("template","pg_name");
+
+        return $page_name;
     }
 }

@@ -5,7 +5,9 @@ namespace Poutnik;
 require "load.php";
 
 $template = new Template();
-$template->title = "Kontakty";
+
+$template->setTitle("Kontakty");
+$template->setPageName("kontakty");
 
 $template->render("top.php");
 ?>

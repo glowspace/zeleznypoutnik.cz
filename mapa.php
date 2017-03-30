@@ -9,7 +9,7 @@ namespace Poutnik;
 require "load.php";
 
 $template = new Template();
-$template->title = "Trasa";
+$template->setTitle("Trasa");
 
 $template->render("top.php")
 ?>
