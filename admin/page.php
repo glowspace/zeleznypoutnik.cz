@@ -8,8 +8,6 @@ namespace Poutnik;
 
 require "../load.php";
 
-$config = new Config();
-
 /**
  * Layout stránky
  */
