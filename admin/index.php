@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * Index administrace
+ */
+
 namespace Poutnik;
 
 require "../load.php";
 
-$template = new Template();
+$template = new TemplateAdmin();
 
-$template->get("template/top.php");
+$template->render("top.php");
 
 ?>
 
@@ -568,6 +572,6 @@ $template->get("template/top.php");
     </div>
 
 <?php
-$template->get("template/bottom.php");
+$template->render("template/bottom.php");
 
 

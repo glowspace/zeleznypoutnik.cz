@@ -7,7 +7,7 @@ require "load.php";
 $template = new Template();
 $template->title = "Kontakty";
 
-$template->get("top.php");
+$template->render("top.php");
 ?>
 <div class="container">
     <div class="content" id="mapa">
@@ -30,5 +30,5 @@ $template->get("top.php");
 </div>
 
 <?php
-$template->get("bottom.php");
+$template->render("bottom.php");
 

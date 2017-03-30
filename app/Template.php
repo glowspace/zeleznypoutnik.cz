@@ -6,7 +6,7 @@ namespace Poutnik;
  * Třída pro práci s grafickými šablonami.
  *
  * @author Michael Dojčár <michael.dojcar@gmail.com>
- * @version 0.28
+ * @version 0.30
  */
 
 class Template
@@ -18,7 +18,7 @@ class Template
     public $title;
 
     /**
-     * @var $pageName string Název stránky - načítá se z configu
+     * @var $pageName string Název stránky - načítá se z configu.
      */
     public $pageName;
 
@@ -32,7 +32,7 @@ class Template
      */
     function __construct()
     {
-        $config = new Config();
+        $config = $GLOBALS['config'];
 
         $this->pageName = $config->getProperty("template","pg_name");
         $this->path = ROOT . $config->getProperty("template","path");
@@ -42,13 +42,20 @@ class Template
      * Načte šablonu z defaultního adresáře.
      *
      * @param $template_name string Název souboru s šablonou, který se má importován
-     * @return string Obsah šablony
+     * @return bool
      */
-    public function get($template_name)
+    public function render($template_name)
     {
-        $content = $this->getFromDir($this->path,$template_name);
+        $content = $this->renderFromDir($this->path,$template_name);
 
-        return $content;
+        if($content)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
@@ -59,7 +66,7 @@ class Template
      *
      * @return string Obsah souboru se šablonou
      */
-    protected function getFromDir($template_path, $template_name)
+    protected function renderFromDir($template_path, $template_name)
     {
         $file_path = $template_path . '/' . $template_name;
 
@@ -68,16 +75,16 @@ class Template
 
         if ($check == true)
         {
-            $template_content = readfile($file_path);
+            require $file_path;
 
-            return $template_content;
+            return true;
         }
         // Pokud ne..
         else
         {
             trigger_error("Neplatný název souboru šablony! ($file_path)");
 
-            return null;
+            return false;
         }
 
     }
@@ -111,7 +118,7 @@ class Template
      */
     public function getPageName()
     {
-        $config = new Config();
+        $config = $GLOBALS['config'];
 
         $page_name = $config->getProperty("template","pg_name");
 
@@ -121,7 +128,7 @@ class Template
         }
         else
         {
-            return "[pageName]";
+            trigger_error("Page_name nebylo určeno.");
         }
     }
 }

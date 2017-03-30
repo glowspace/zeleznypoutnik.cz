@@ -10,7 +10,7 @@ namespace Poutnik;
 
 $template = $GLOBALS['template'];
 
-$config = new Config();
+$config = $GLOBALS['config'];
 $fb_display = $config->getProperty("template","fb_icon_display");
 
 $layout_url = ROOT_URL . $config->getProperty("template","layout_path");

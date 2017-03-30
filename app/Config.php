@@ -3,11 +3,11 @@
 namespace Poutnik;
 
 /**
- * Třída pro práci s konfiguračním souborem,
+ * Třída pro práci s INI konfiguračním souborem,
  * umístění konfigurace je uvedeno v constructoru.
  *
  * @author Michael Dojčár
- * @version 0.06
+ * @version 0.10
  */
 
 class Config
@@ -24,19 +24,19 @@ class Config
      * 1) určuje cestu do configu
      * 2) načte config do pole $this->config
      *
+     * @param $config_path string Cesta k souboru
+     *
      */
-    public function __construct()
+    public function __construct($config_path)
     {
-        $config_path = ROOT . '/config.ini';
-
         $this->configArray = $this->load($config_path);
     }
 
     /**
-     * Načte ini soubor do pole
-     *
-     * @return array Pole s hodnotami configu
+     * Načte ini soubor do pole.
+
      * @param $path string Cesta k souboru
+     * @return mixed Pole s hodnotami configu
      */
     protected function load($path)
     {
@@ -51,11 +51,13 @@ class Config
         else
         {
             trigger_error("Config nebyl načten!");
+
+            return null;
         }
     }
 
     /**
-     * Zjištění hodnoty určité vlastnosti v configu
+     * Zjištění hodnoty určité vlastnosti v configu.
      *
      * @param $sectionName string Výběr ini sekce v configu
      * @param $optionName string Název konkrétní vlastnosti v configu
@@ -72,7 +74,9 @@ class Config
         }
         else
         {
-            trigger_error("Chybná hodnota konfigurace.");
+            trigger_error("Volaná hodnota konfigurace neexistuje.");
+
+            return null;
         }
     }
 

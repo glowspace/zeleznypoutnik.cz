@@ -44,7 +44,7 @@ class Database {
      */
     public function connect()
     {
-        $config = new Config();
+        $config = new Config(ROOT . "/config.ini");
 
         // Výběr ini-sekce s údaji
         $this->loadCredentials($config->getProperty("database","use_database"));
@@ -132,7 +132,7 @@ class Database {
      */
     protected function loadCredentials($config_section)
     {
-        $config = new Config();
+        $config = new Config(ROOT . "/config.ini");
 
         // Údaje k databázi
         $this->host = $config->getProperty($config_section,"host");

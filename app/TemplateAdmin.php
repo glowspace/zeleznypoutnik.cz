@@ -8,16 +8,23 @@ namespace Poutnik;
  * @author Michael Dojčár <michael.dojcar@gmail.com>
  */
 
-class AdminTemplate extends Template
+class TemplateAdmin extends Template
 {
 
-    public function renderAdmin($template_name)
+    /**
+     * @param string $template_name
+     * @return mixed
+     */
+    public function render($template_name)
     {
-        $content = $this->getFromDir(ROOT . "admin/layout/template",$template_name);
+        $content = $this->renderFromDir(ROOT . "/admin/layout/template/",$template_name);
         return $content;
     }
 
-    public function getTitleAdmin()
+    /**
+     * @return string
+     */
+    public function getTitle()
     {
         // Zobrazení titulku
         if (isset($this->title))

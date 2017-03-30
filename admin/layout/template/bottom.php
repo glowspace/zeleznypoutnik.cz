@@ -1,3 +1,9 @@
+<?php
+
+/**
+ * Spodní strana šablony administrace
+ */
+?>
 </div> <!-- /container -->
 
 <div class="reklama">

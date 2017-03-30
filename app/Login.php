@@ -4,12 +4,12 @@ namespace Poutnik;
 
 /**
  * Třída pro práci s relací přihlášení.
- * Přihlášení se ukládá do sessions.
+ * Přihlášení se ukládá do PHP session.
  *
  * @todo Zprovoznit
  *
  * @author Michael Dojčár <michael.dojcar@gmail.com>
- * @version 0.02
+ * @version 0.03
  */
 
 class Login
@@ -53,10 +53,10 @@ class Login
         $this->db = new Database();
 
         // Nastavení výchozí tabulky
-        $config = new Config();
+        $config = $GLOBALS["config"];
         $this->tableName = $config->getProperty("tables","uzivatele");
 
-        // Nastavení atributů logged, loggedId
+        // Zjištění stavu atributů logged, loggedId
         $this->loadSessions();
     }
 
@@ -130,7 +130,7 @@ class Login
         unset($_SESSION['logged_id']);
     }
 
-    public function hash($str)
+    private function hash($str)
     {
         $hash = md5(md5(md5(sha1($str))));
 

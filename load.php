@@ -2,59 +2,45 @@
 
 /**
  * Autoload knihovna pro web poutníka - importuje se do každé stránky
- *
- * @author Michael Dojčár <michael.dojcar@gmail.com>;
- **/
+ */
 
 namespace Poutnik;
 
-// Kódování
+/**
+ * Nastavení kódování
+ */
 header("Content-Type: text/html; charset=utf-8");
 
-// Cesty
+/**
+ * Cesta do rootu
+ */
 define('ROOT', dirname(__FILE__));
-define('CLASS_PATH', ROOT . '/app');
 
-// Načtení tříd
-require CLASS_PATH . '/Config.php';
-require CLASS_PATH . '/Database.php';
-require CLASS_PATH . '/Page.php';
-require CLASS_PATH . '/Template.php';
-require CLASS_PATH . '/User.php';
+/**
+ * Načtení všech tříd
+ */
+foreach (glob(ROOT . "/app/*.php") as $filename)
+{
+    include $filename;
+}
 
-$config = new Config();
+$config = new Config(ROOT . "/config.ini");
 
-// URL webu
+/**
+ * Další cesty v adresáři
+ */
+
+// Administrace
+define('CLASS_PATH', ROOT . '/admin');
+
+/**
+ * URL adresy
+ */
+
+// Root webu
 define('ROOT_URL', 'http://' . htmlspecialchars($_SERVER['HTTP_HOST']) . $config->getProperty("web","server_url_subdir"));
 
-$db_test = new Database();
-$db_test->connect();
+// Administrace
+define('ADMIN_URL', ROOT_URL . "/admin");
 
 
-
-
-
-
-
-
-
-/*// Účty a přihlášení
-require ROOT . '/login/login.class.php';
-require ROOT . '/login/session.check.php';
-
-$login = new Login();
-
-// Objekt aktuálně přihlášeného uživatele
-if($login->logged == true)
-{
-    $tu = new user();
-    $tu->getData($login->loggedId);
-}
-else {
-    $tu = null;
-}*/
-
-//foreach (glob(ROOT . "/app/*.php") as $filename)
-//{
-//    include $filename;
-//}
