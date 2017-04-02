@@ -16,7 +16,7 @@ $template->render("top.php");
         <h1>Kontakty</h1>
 
         <p>
-            <span style="color: #5f5f5f">email farnosti v Louce: </span> <a href="mailto:info@zeleznypoutnik.cz">info@farnostlouka.cz</a>
+            <span style="color: #5f5f5f">email farnosti v Louce: </span> <a href="mailto:info@farnostlouka.cz">info@farnostlouka.cz</a>
         </p>
         <p>
             <span style="color: #5f5f5f">telefon na farnost v Louce: </span>+420 736 523 600

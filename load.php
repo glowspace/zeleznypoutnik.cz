@@ -33,6 +33,7 @@ $config = new Config(ROOT . "/config.ini");
 // Administrace
 define('CLASS_PATH', ROOT . '/admin');
 
+
 /**
  * URL adresy
  */
@@ -46,4 +47,6 @@ define('ROOT_URL_SHORT', htmlspecialchars($_SERVER['HTTP_HOST']) . $config->getP
 // Administrace
 define('ADMIN_URL', ROOT_URL . "/admin");
 
+// Adresář s šablonami
+define("LAYOUT_URL", ROOT_URL . $config->getProperty("template","layout_path"));
 

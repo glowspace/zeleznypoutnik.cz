@@ -10,7 +10,7 @@ require "load.php";
 
 $template = new Template();
 
-$template->setPageName("index");
+$template->setPageName("uvod");
 
 $template->render("top.php");
 ?>
@@ -38,12 +38,15 @@ $template->render("top.php");
         <p>
             Zhruba v polovině trasy (v Prosenicích) bude připraveno menší občerstvení a teplý čaj.
             Kněží budou během cesty k dispozici pro duchovní rozhovor nebo svátost smíření.
+            Na Hostýně bude otevřen poutnický dům, kde je možné dospat do mše.
         </p>
 
         <p>
             Případný odvoz na Hostýn během cesty je zajištěn.
             Zpáteční cestu ze Svatého Hostýna si zajišťuje každý sám.
-            V případě dotazů je možné využít email <a href="mailto:info@zeleznypoutnik.cz">info@zeleznypoutnik.cz</a>, informace poskytuje taky farnost na <a href="http://svatykopecek.cz">Svatém Kopečku</a> nebo  v <a href="https://www.farnostlouka.cz">Louce</a>.
+            V případě dotazů je možné využít email <a href="mailto:info@farnostlouka.cz">info@farnostlouka.cz</a>,
+            informace poskytuje taky farnost na <a href="http://svatykopecek.cz">Svatém Kopečku</a>
+            nebo  v <a href="https://www.farnostlouka.cz">Louce</a>.
         </p>
 
         <p>
