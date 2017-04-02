@@ -129,7 +129,7 @@ h1,h2,h3,h4,h5 {
 
 }
 
-.header-menu .info {
+.header-menu .info { // Info sekce
   height: auto;
   width: auto;
 
@@ -137,16 +137,16 @@ h1,h2,h3,h4,h5 {
   display: inline-block;
 }
 
-.header-menu .info {
+.header-menu .info p {
   color: rgba(255, 255, 255, 0.7);
 
-  padding: 13px 10px;
+  padding: 0 10px;
+  margin: 0;
 
   font-size: 1.5em;
 }
 
-.header-menu .menu {
-
+.header-menu .menu { // Položky menu
   display: inline-block;
 }
 
@@ -159,7 +159,7 @@ h1,h2,h3,h4,h5 {
   text-decoration: none;
 }
 
-.header-menu .menu .active a  {
+.header-menu .menu .active {
   color: rgb(255, 255, 255);
 }
 

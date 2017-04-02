@@ -75,7 +75,9 @@ $pocitadlo = new Pocitadlo("2017-03-31");
 
         <div class="header-menu">
             <div class="info">
-                <div class="d-only">Svatý Kopeček - Svatý Hostýn - <?php echo $pocitadlo->get(); ?></div>
+                <div class="d-only">
+                    <p>Svatý Kopeček - Svatý Hostýn - <?php echo $pocitadlo->get(); ?></p>
+                </div>
                 <div class="m-only">
                     <p>Svatý Kopeček - Svatý Hostýn</p>
                     <p style="display: inline-block; padding: 0px;"><?php echo $pocitadlo->get(); ?></p>
