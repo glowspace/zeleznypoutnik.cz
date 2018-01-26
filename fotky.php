@@ -21,7 +21,7 @@ $template->render("top.php");
                         <a href="http://galerie.clovekavira.cz/detail-galerie/45ff6e10-acee-45bc-9b69-8b74e011ab0b">Dominik Polanský - clovekavira.cz (1. album)</a>
                     </li>
                     <li>
-                        <a href="http://galerie.clovekavira.cz/detail-galerie/45ff6e10-acee-45bc-9b69-8b74e011ab0b">Dominik Polanský - clovekavira.cz (2. album)</a>
+                        <a href="http://galerie.clovekavira.cz/detail-galerie/3ab2afcc-ff27-4734-bd9f-5741d232484b">Dominik Polanský - clovekavira.cz (2. album)</a>
                     </li>
 
                 </ol>

@@ -13,21 +13,20 @@ $font_zakladni_velikost: 13px;
 $font_header: 'Gentium Basic', serif;
 
 body {
-  margin: 0;
+  margin:      0;
 
   font-family: $font_zakladni;
-  font-size: $font_zakladni_velikost; // 13px
+  font-size:   $font_zakladni_velikost; // 13px
 }
 
 /* korekce pro malý desktop */
-@media screen and (min-width: 667px)
-{
+@media screen and (min-width: 667px) {
   body {
     min-width: 1015px;
   }
 }
 
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
   font-family: $font_header;
 }
 
@@ -35,14 +34,14 @@ h1,h2,h3,h4,h5 {
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  -webkit-user-select:   none; /* Safari */
+  -khtml-user-select:    none; /* Konqueror HTML */
+  -moz-user-select:      none; /* Firefox */
+  -ms-user-select:       none; /* Internet Explorer/Edge */
+  user-select:           none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome and Opera */
 }
-
 
 /* třídy pro responsivní obsah */
 
@@ -50,13 +49,13 @@ h1,h2,h3,h4,h5 {
 .d-only {
   display: inherit;
 }
+
 .m-only {
   display: none;
 }
 
 // 2. mobile
-@media screen and (max-width: 667px)
-{
+@media screen and (max-width: 667px) {
   .d-only {
     display: none;
   }
@@ -65,83 +64,82 @@ h1,h2,h3,h4,h5 {
   }
 }
 
-
 /* šablona stránky */
 
 .page-container {
   padding: 0;
-  margin: 0;
+  margin:  0;
 }
 
-
 .header-container { // záhlaví webu včetně menu
-  height: 300px;
-  width: auto;
+  height:              300px;
+  width:               auto;
 
-  margin: 0;
-  padding: 0;
+  margin:              0;
+  padding:             0;
 
-  position: relative; // kvůli menu
+  position:            relative; // kvůli menu
 
-  background-image: url('../img/header_stripe2.png');
-  background-size: cover;
+  background-image:    url('../img/header_1.jpg');
+  background-size:     cover;
+  background-position: right;
 
-  font-family: 'Gentium Basic', serif;
+  font-family:         'Gentium Basic', serif;
 }
 
 .header-title { // obklopuje nadpis a podnadpis záhlaví
-  display: inline-block;
+  display:  inline-block;
 
   position: relative;
-  top: 1.8rem;
-  left: 4rem;
+  top:      1.8rem;
+  left:     4rem;
 }
 
 .header-title h1 {
-  font-size: 5em;
-  font-weight: normal;
+  font-size:     5em;
+  font-weight:   normal;
   margin-bottom: 0.2em;
 
-  color: #212020;
+  color:         #212020;
 }
 
 .header-title p {
   margin-top: 0;
-  font-size: 1.69em;
+  font-size:  1.69em;
 
-  color: #f7f7f7;
-  text-shadow: #000000 0 0 7px;
+  color:      #000000;
+  //text-shadow: #000000 0 0 7px;
 }
 
-.header-menu {  // menu (na spodku header-conteineru)
-  height: auto;
-  width: calc(100% - 2em);
+.header-menu { // menu (na spodku header-conteineru)
+  height:           auto;
+  width:            calc(100% - 2em);
 
-  margin: 0;
-  padding: 1em;
+  margin:           0;
+  padding:          1em;
 
-  position: absolute; // menu je přilepené dole
-  bottom: 0;
+  position:         absolute; // menu je přilepené dole
+  bottom:           0;
 
-  box-shadow: #0f0f0f 0 0 10px;
+  box-shadow:       #0f0f0f 0 0 10px;
 
   background-color: rgba(0, 0, 0, 0.4);
 
 }
 
 .header-menu .info { // Info sekce
-  height: auto;
-  width: auto;
+  height:  auto;
+  width:   auto;
 
-  float: right;
+  float:   right;
   display: inline-block;
 }
 
 .header-menu .info p {
-  color: rgba(255, 255, 255, 0.7);
+  color:     rgba(255, 255, 255, 0.7);
 
-  padding: 0 10px;
-  margin: 0;
+  padding:   0 10px;
+  margin:    0;
 
   font-size: 1.5em;
 }
@@ -151,11 +149,11 @@ h1,h2,h3,h4,h5 {
 }
 
 .header-menu .menu a {
-  color: rgba(255, 255, 255, 0.7);
+  color:           rgba(255, 255, 255, 0.7);
 
-  padding: 13px 10px;
+  padding:         13px 10px;
 
-  font-size: 1.5em;
+  font-size:       1.5em;
   text-decoration: none;
 }
 
@@ -167,60 +165,60 @@ h1,h2,h3,h4,h5 {
   color: #ffffff;
 }
 
-/* header responsivní */
+/* header-container responsivní */
 @media screen and (max-width: 667px) {
   .header-container {
-    height: auto;
-    width: 100%;
+    height:          auto;
+    width:           100%;
 
-    margin: 0;
-    padding: 0;
+    margin:          0;
+    padding:         0;
 
-    display: block;
+    display:         block;
 
-    text-align: center;
+    text-align:      center;
 
     background-size: cover;
-    background: url('../img/mobile_bg2.jpg') right;
+    background:      url('../img/mobile_bg2.jpg') right;
   }
 
   .header-title {
     position: static;
 
-    padding: 1em;
+    padding:  1em;
   }
 
   .header-title h1 {
-    font-size: 35px;
+    font-size:   35px;
 
     text-shadow: white 0 0 3px;
   }
 
   .header-title p {
-    color: #262626;
-    font-size: 17px;
+    color:       #262626;
+    font-size:   17px;
 
     text-shadow: white 0 0 3px;
   }
 
   .header-menu {
-    height: auto;
-    width: 100%;
+    height:   auto;
+    width:    100%;
 
-    margin: 0;
-    padding: 0;
+    margin:   0;
+    padding:  0;
 
-    display: block;
+    display:  block;
 
     position: relative;
   }
 
   .header-menu .info {
     /*border-bottom: rgba(0, 0, 0, 0.55) 1px solid;*/
-    width: 100%;
-    padding: 1em 0 1em;
+    width:            100%;
+    padding:          1em 0 1em;
 
-    box-shadow: rgba(255, 255, 255, 0.31) 0 0 3px;
+    box-shadow:       rgba(255, 255, 255, 0.31) 0 0 3px;
     background-color: rgba(255, 255, 255, 0.31);
   }
 
@@ -229,9 +227,9 @@ h1,h2,h3,h4,h5 {
   }
 
   .header-container .menu {
-    height: auto;
+    height:  auto;
 
-    margin: 1em 0;
+    margin:  1em 0;
     padding: 0;
   }
 
@@ -242,19 +240,17 @@ h1,h2,h3,h4,h5 {
   }
 }
 
-
 /* korekce záhlaví (headerbar) */
-@media screen and (max-width: 1059px)
-{
+@media screen and (max-width: 1059px) {
 
 }
 
 /* obsah */
 .container {
   min-height: 60vh;
-  width: 100%;
+  width:      100%;
 
-  overflow: hidden;
+  overflow:   hidden;
 }
 
 .container a {
@@ -266,12 +262,12 @@ h1,h2,h3,h4,h5 {
 }
 
 .content {
-  height: auto;
-  width: calc(100% - 520px);
+  height:    auto;
+  width:     calc(100% - 520px);
 
-  float: left;
+  float:     left;
 
-  padding: 2em 2em 2em 4em;
+  padding:   2em 2em 2em 4em;
 
   font-size: 1.2em;
 
@@ -279,10 +275,10 @@ h1,h2,h3,h4,h5 {
 }
 
 .column {
-  float: left;
+  float:   left;
 
-  height: auto;
-  width: 340px;
+  height:  auto;
+  width:   340px;
 
   /* border: red 1px dashed;*/
 
@@ -290,15 +286,15 @@ h1,h2,h3,h4,h5 {
 }
 
 .content h1 {
-  font-size: 2rem;
+  font-size:     2rem;
 
   margin-bottom: 0.2em;
 }
 
 .content .date-label {
-  font-size: 0.8em;
+  font-size:    0.8em;
 
-  color: #0c8b45;
+  color:        #0c8b45;
 
   padding-left: 1em;
 }
@@ -309,17 +305,17 @@ h1,h2,h3,h4,h5 {
 
 .parallax-middle {
   height: 500px;
-  width: 100%;
+  width:  100%;
 
 }
 
 /* footer */
 
 .footer-container {
-  height: auto;
-  width: 100%;
+  height:     auto;
+  width:      100%;
 
-  overflow: hidden;
+  overflow:   hidden;
 
   background: none;
 
@@ -327,14 +323,14 @@ h1,h2,h3,h4,h5 {
 }
 
 .footer {
-  height: auto;
-  width: auto;
+  height:           auto;
+  width:            auto;
 
-  padding: 1rem 4rem;
+  padding:          1rem 4rem;
 
-  font-family: 'Gentium Basic', serif;
-  font-size: 1.5em;
-  color: #000000;
+  font-family:      'Gentium Basic', serif;
+  font-size:        1.5em;
+  color:            #000000;
 
   background-color: #f0f0f0;
 }
@@ -347,18 +343,17 @@ h1,h2,h3,h4,h5 {
   color: #3250b2;
 }
 
-@media screen and (max-width: 667px)
-{
+@media screen and (max-width: 667px) {
   .content {
-    height: auto;
-    width: calc(100% - 2em);
+    height:  auto;
+    width:   calc(100% - 2em);
 
     padding: 0.7em 1em;
   }
 
   .column {
-    height: auto;
-    width: calc(100% - 2em);
+    height:  auto;
+    width:   calc(100% - 2em);
 
     padding: 1em;
   }
@@ -369,7 +364,7 @@ h1,h2,h3,h4,h5 {
 
   .content .box ul {
     padding: 1em;
-    margin: 0;
+    margin:  0;
   }
 
   .footer {

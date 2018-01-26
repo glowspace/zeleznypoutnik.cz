@@ -27,14 +27,6 @@ class Database {
     public $connection;
 
     /**
-     * Database constructor.
-     */
-    public function __construct()
-    {
-        $this->connect();
-    }
-
-    /**
      * Vytvoření připojení k databázi pomocí údajů z atribut.
      *
      * Pokusí se připojit k mysql,
@@ -42,15 +34,10 @@ class Database {
      *
      * @return bool TRUE při připojení k databázi
      */
-    public function connect()
+    public function connect($host, $user, $pwd, $db)
     {
-        $config = new Config(ROOT . "/config.ini");
-
-        // Výběr ini-sekce s údaji
-        $this->loadCredentials($config->getProperty("database","use_database"));
-
         // Relace MySQLi pomocí načtených údajů
-        $mysqli = new \mysqli($this->host, $this->user, $this->password, $this->database);
+        $mysqli = new \mysqli($host, $user, $pwd, $db);
 
         // Chyba při selhání připojení
         if ($mysqli === false)

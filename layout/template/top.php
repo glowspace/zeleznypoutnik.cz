@@ -50,21 +50,21 @@ $pocitadlo = new Pocitadlo("2017-03-31");
 
     <title><?php echo $template->getTitle() ?></title>
 
-    <meta name="Author" content="Michael Dojčár">
-    <meta name="Description" content="Srdečně Vás zveme na Železného poutníka - postní pěší pouť ze Svatého Kopečka na Svatý Hostýn. 50 km za jednu noc.">
-    <meta name="Keywords" content="pouť železný poutník 2017 pěší postní ">
+    <meta name="Description" content="50 km dlouhá postní pěší pouť ze Svatého Kopečka na Svatý Hostýn - to je Železný poutník. Pouť probíhá v noci z pátku na sobotu týden před květnou nedělí.">
+    <meta name="Keywords" content="pouť železný poutník 2017 pěší postní">
 
     <link rel="stylesheet" href="<?php echo LAYOUT_URL ?>/css/theme.css">
-    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="<?php echo ROOT_URL ?>/vendor/parallax.js-1.4.2/parallax.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT_URL ?>/vendor/slick/slick.min.js"></script>
+
 </head>
 
 <body>
-<?php include ROOT . '/vendor/google/g_analytics.php' ?>
+<?php include ROOT . '/vendor/google/g_analytics.php' # Google analytics ?>
 
 <div class="page-container">
     <div class="header-container">

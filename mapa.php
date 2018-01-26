@@ -10,13 +10,14 @@ require "load.php";
 
 $template = new Template();
 $template->setTitle("Trasa");
+$template->setPageName("mapa");
 
 $template->render("top.php")
 ?>
     <div class="m-only">
         <div class="container">
             <div class="content">
-                <p><a>Kliknutím mapu otebřete v Mapách Google.</p>
+                <p><a>Kliknutím mapu otevřete v Mapách Google.</p>
 
                 <a href="mapa.php" title="Kliknutím zobrazte detail trasy">
                     <img width="100%" src="layout/img/mapa_preview2.jpg" alt="Mapa trasy" style=" box-shadow: #b7b7b7 0 0 7px;">

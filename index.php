@@ -16,10 +16,10 @@ $template->render("top.php");
 ?>
 <div class="container">
     <div class="content">
-        <h1>20. ročník Železného poutníka</h1>
+        <h1>21. ročník Železného poutníka</h1>
 
         <p>
-            Srdečně Vás zveme na 20. ročník železného poutníka - postní pěší pouť, která se koná vždy v noci z pátku
+            Srdečně Vás zveme na 21. ročník železného poutníka - postní pěší pouť, která se koná vždy v noci z pátku
             na sobotu týden před květnou nedělí. Pouť začíná mší svatou v Bazilice Navštívení Panny Marie na
             Svatém Kopečku a končí mší svatou v Bazilice Nanebevzetí Panny Marie na Svatém Hostýně.
         </p>
@@ -28,8 +28,8 @@ $template->render("top.php");
 
         <div class="box">
             <ul style="list-style-type: none">
-                <li><u>start:</u> pátek 31.3. 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
-                <li><u>konec:</u> sobota 1.4. 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
+                <li><u>start:</u> pátek 16.3. 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
+                <li><u>konec:</u> sobota 17.3. 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
                 <li><u>s sebou:</u> svačinu, dobrou náladu a dobré pohodlné boty</li>
 
             </ul>

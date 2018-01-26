@@ -83,9 +83,7 @@ class Config
         }
         else
         {
-            trigger_error("Config nebyl načten!");
-
-            return null;
+            die("Config nebyl načten!");
         }
     }
 
