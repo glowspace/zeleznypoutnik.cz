@@ -143,8 +143,8 @@
                 </div>
                 <div class="menu">
                     <a href="/">info k letošnímu ročníku</a>
-                    <a href="/mapa.php">mapa trasy</a>
-                    <a href="/kontakty.php">kontakt</a>
+                    <a href="/mapa">mapa trasy</a>
+                    <a href="/kontakt">kontakt</a>
                 </div>
 
             </div> <!-- header-navigation -->
@@ -158,7 +158,6 @@
 
 
                 |
-                <a href="https://www.farnostlouka.cz">farnostlouka.cz</a> |
                 <a href="http://www.svatykopecek.cz/">svatykopecek.cz</a> |
                 <a href="http://www.hostyn.cz/">hostyn.cz</a>
 
