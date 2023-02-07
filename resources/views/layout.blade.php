@@ -104,7 +104,7 @@
 
                     // výpočet rotdílu mezi časy
                     $now = time();
-                    $poutnik = strtotime("2022-03-24");
+                    $poutnik = strtotime("2023-03-24");
 
 
 
