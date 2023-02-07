@@ -104,18 +104,20 @@
 
                     // výpočet rotdílu mezi časy
                     $now = time();
-                    $poutnik = strtotime("2022-03-31");
+                    $poutnik = strtotime("2022-03-24");
+
+
 
                     $datediff = $poutnik - $now;
                     $pocet_dni = floor($datediff / (60 * 60 * 24));
 
                     if ($pocet_dni > 4)
                     {
-                        $dny_do_poutnika = "31. března 2017 - 18:00 (<b>za $pocet_dni dní</b>)";
+                        $dny_do_poutnika = "24. března 2023 - 18:00 (<b>za $pocet_dni dní</b>)";
                     }
                     elseif ($pocet_dni > 1)
                     {
-                        $dny_do_poutnika = '31. března 2017 - 18:00 (<b>za ' . $pocet_dni . ' dny</b>)';
+                        $dny_do_poutnika = '24. března 2023 - 18:00 (<b>za ' . $pocet_dni . ' dny</b>)';
                     }
                     elseif ($pocet_dni == 1)
                     {
@@ -127,7 +129,7 @@
                     }
                     elseif ($pocet_dni < 0)
                     {
-                        $dny_do_poutnika = 'v postní době 2023';
+                        $dny_do_poutnika = 'v postní době 2024';
                     }
 
                 @endphp

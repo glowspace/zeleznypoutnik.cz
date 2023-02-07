@@ -13,16 +13,16 @@
 
             <p>Pouť se bude konat v postní době 2023.</p>
 
-{{--            <h2>info k letošnímu ročníku</h2>--}}
+            <h2>info k letošnímu ročníku</h2>
 
-{{--            <div class="box">--}}
-{{--                <ul style="list-style-type: none">--}}
-{{--                    <li><u>start:</u> pátek 31.3. 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>--}}
-{{--                    <li><u>konec:</u> sobota 1.4. 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>--}}
-{{--                    <li><u>s sebou:</u> svačinu, dobrou náladu a dobré pohodlné boty</li>--}}
+            <div class="box">
+                <ul style="list-style-type: none">
+                    <li><u>start:</u> pátek 24.3. 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
+                    <li><u>konec:</u> sobota 25.3. 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
+                    <li><u>s sebou:</u> svačinu, dobrou náladu a dobré pohodlné boty</li>
 
-{{--                </ul>--}}
-{{--            </div>--}}
+                </ul>
+            </div>
 
             <p>
                 Zhruba v polovině trasy (v Prosenicích) bude připraveno menší občerstvení a teplý čaj.
