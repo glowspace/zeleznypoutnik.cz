@@ -136,7 +136,7 @@
 
                 <div class="info">
                     <div class="d-only">
-                        <a>Svatý Kopeček - Svatý Hostýn - {{ $dny_do_poutnika }}</a>
+                        <a>Svatý Kopeček - Svatý Hostýn - {!! $dny_do_poutnika !!}</a>
                     </div>
                     <div class="m-only">
                         <a>Svatý Kopeček - Svatý Hostýn</a>
