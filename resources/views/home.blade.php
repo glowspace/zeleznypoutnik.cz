@@ -42,7 +42,7 @@
         </div>
 
         <div class="column">
-            <a href="mapa.php" title="Kliknutím zobrazte detail trasy">
+            <a href="{{route('map')}}" title="Kliknutím zobrazte detail trasy">
                 <img width="100%" src="{{asset('img/mapa_preview2.jpg')}}" alt="Mapa trasy" style="margin-bottom: 2em; box-shadow: #b7b7b7 0 0 7px;">
             </a>
         </div>
