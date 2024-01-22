@@ -3,22 +3,20 @@
 @section('content')
     <div class="container">
         <div class="content">
-            <h1>26. ročník Železného poutníka</h1>
+            <h1>{{$year_count}}. ročník Železného poutníka</h1>
 
             <p>
-                Srdečně Vás zveme na 26. ročník železného poutníka - postní pěší pouť, která se koná vždy v noci z pátku
+                Srdečně Vás zveme na {{$year_count}}. ročník železného poutníka - postní pěší pouť, která se koná vždy v noci z pátku
                 na sobotu týden před květnou nedělí. Pouť začíná mší svatou v Bazilice Navštívení Panny Marie na
                 Svatém Kopečku a končí mší svatou v Bazilice Nanebevzetí Panny Marie na Svatém Hostýně.
             </p>
-
-            <p>Pouť se bude konat v postní době 2023.</p>
 
             <h2>info k letošnímu ročníku</h2>
 
             <div class="box">
                 <ul style="list-style-type: none">
-                    <li><u>start:</u> pátek 24.3. 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
-                    <li><u>konec:</u> sobota 25.3. 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
+                    <li><u>start:</u> {{$start_date->format('j.n.Y')}} 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
+                    <li><u>konec:</u>{{$start_date->copy()->addDay()->format('j.n.Y')}} 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
                     <li><u>s sebou:</u> svačinu, dobrou náladu a dobré pohodlné boty</li>
 
                 </ul>

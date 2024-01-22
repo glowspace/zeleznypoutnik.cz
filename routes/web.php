@@ -13,17 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function ()
-{
-    return view('home');
+Route::get('/', function () {
+    $start_date = \Carbon\Carbon::parse(config('app.start_date'));
+
+    return view('home', [
+        'start_date' => $start_date,
+        'year_count' => config('app.year_count')
+    ]);
 })->name('home');
 
-Route::get('/kontakt', function ()
-{
+Route::get('/kontakt', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/mapa', function ()
-{
+Route::get('/mapa', function () {
     return view('map');
 })->name('map');

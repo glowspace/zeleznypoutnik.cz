@@ -89,85 +89,79 @@
 </head>
 
 <body>
-    <div class="page-container">
-        <div class="header-container">
-            <div class="header-title noselect"
-                 id="nadpis">
-                <h1><a>Železný poutník</a></h1>
-                <p>1 noc - 2 poutní místa - 50km - postní pěší pouť</p>
-            </div>
-
-            <div class="header-navigation">
-
-                @php
-                    // TODO: fuj! Would be better to use Carbon.
-
-                    // výpočet rotdílu mezi časy
-                    $now = time();
-                    $poutnik = strtotime("2023-03-24");
-
-
-
-                    $datediff = $poutnik - $now;
-                    $pocet_dni = floor($datediff / (60 * 60 * 24));
-
-                    if ($pocet_dni > 4)
-                    {
-                        $dny_do_poutnika = "24. března 2023 - 18:00 (<b>za $pocet_dni dní</b>)";
-                    }
-                    elseif ($pocet_dni > 1)
-                    {
-                        $dny_do_poutnika = '24. března 2023 - 18:00 (<b>za ' . $pocet_dni . ' dny</b>)';
-                    }
-                    elseif ($pocet_dni == 1)
-                    {
-                        $dny_do_poutnika = 'zítra od 18:00';
-                    }
-                    elseif ($pocet_dni == 0)
-                    {
-                        $dny_do_poutnika = 'dnes od 18:00';
-                    }
-                    elseif ($pocet_dni < 0)
-                    {
-                        $dny_do_poutnika = 'v postní době 2024';
-                    }
-
-                @endphp
-
-                <div class="info">
-                    <div class="d-only">
-                        <a>Svatý Kopeček - Svatý Hostýn - {!! $dny_do_poutnika !!}</a>
-                    </div>
-                    <div class="m-only">
-                        <a>Svatý Kopeček - Svatý Hostýn</a>
-                        <a style="display: inline-block; padding: 0px;"><?php echo $dny_do_poutnika; ?></a>
-                    </div>
-                </div>
-                <div class="menu">
-                    <a href="/">info k letošnímu ročníku</a>
-                    <a href="/mapa">mapa trasy</a>
-                    <a href="/kontakt">kontakt</a>
-                </div>
-
-            </div> <!-- header-navigation -->
-        </div> <!-- header-container -->
-        @yield('content')
-
-        <div class="footer-container">
-            <div class="footer">
-                <?php echo date("Y"); ?> -
-                <a href="http://zeleznypoutnik.cz">zeleznypoutnik.cz</a>
-
-
-                |
-                <a href="http://www.svatykopecek.cz/">svatykopecek.cz</a> |
-                <a href="http://www.hostyn.cz/">hostyn.cz</a>
-
-
-            </div>
+<div class="page-container">
+    <div class="header-container">
+        <div class="header-title noselect"
+             id="nadpis">
+            <h1><a>Železný poutník</a></h1>
+            <p>1 noc - 2 poutní místa - 50km - postní pěší pouť</p>
         </div>
 
-    </div> <!-- page-container -->
+        <div class="header-navigation">
+
+            @php
+                $now = \Carbon\Carbon::now();
+                $start_date = \Carbon\Carbon::parse(config('app.start_date'));
+
+                $day_count = $now->diffInDays($start_date);
+
+                if ($day_count > 4)
+                {
+                    $dny_do_poutnika = $start_date->format('j.n.Y') . " - 18:00 (<b>za $day_count dní</b>)";
+                }
+                elseif ($day_count > 1)
+                {
+                    $dny_do_poutnika = $start_date->format('j.n.Y') . " - 18:00 (<b>za ' . $day_count . ' dny</b>)";
+                }
+                elseif ($day_count == 1)
+                {
+                    $dny_do_poutnika = 'zítra od 18:00';
+                }
+                elseif ($day_count == 0)
+                {
+                    $dny_do_poutnika = 'dnes od 18:00';
+                }
+                elseif ($day_count < 0)
+                {
+                    $dny_do_poutnika = 'v postní době ' . $start_date->addYear()->format('Y');
+                }
+
+            @endphp
+
+            <div class="info">
+                <div class="d-only">
+                    <a>Svatý Kopeček - Svatý Hostýn - {!! $dny_do_poutnika !!}</a>
+                </div>
+                <div class="m-only">
+                    <a>Svatý Kopeček - Svatý Hostýn</a>
+                    <a style="display: inline-block; padding: 0px;"><?php echo $dny_do_poutnika; ?></a>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="/">info k letošnímu ročníku</a>
+                <a href="/mapa">mapa trasy</a>
+                <a href="/kontakt">kontakt</a>
+            </div>
+
+        </div> <!-- header-navigation -->
+    </div> <!-- header-container -->
+    @yield('content')
+
+    <div class="footer-container">
+        <div class="footer">
+            <?php echo date("Y"); ?> -
+            <a href="http://zeleznypoutnik.cz">zeleznypoutnik.cz</a>
+
+
+            |
+            <a href="http://www.svatykopecek.cz/">svatykopecek.cz</a> |
+            <a href="http://www.hostyn.cz/">hostyn.cz</a>
+
+
+        </div>
+    </div>
+
+</div> <!-- page-container -->
 
 </body>
 </html>
