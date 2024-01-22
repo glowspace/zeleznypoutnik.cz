@@ -15,8 +15,8 @@
 
             <div class="box">
                 <ul style="list-style-type: none">
-                    <li><u>start:</u> {{$start_date->format('j.n.Y')}} 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
-                    <li><u>konec:</u>{{$start_date->copy()->addDay()->format('j.n.Y')}} 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
+                    <li><u>start:</u> {{$start_date->format('j. n. Y')}} 18:00 | Svatý Kopeček | mše svatá v Bazilice Navštívení Panny Marie</li>
+                    <li><u>konec:</u>{{$start_date->copy()->addDay()->format('j. n. Y')}} 7:15 | Svatý Hostýn | mše svatá v Bazilice Nanebevzetí Panny Marie</li>
                     <li><u>s sebou:</u> svačinu, dobrou náladu a dobré pohodlné boty</li>
 
                 </ul>
