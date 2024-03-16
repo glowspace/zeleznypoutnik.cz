@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
-    'start_date' => '2024-03-15',
-    'year_count' => '27',
+    'start_date' => '2025-04-04',
+    'year_count' => '28',
 
     /*
     |--------------------------------------------------------------------------
